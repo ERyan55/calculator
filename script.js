@@ -1,3 +1,8 @@
+// Variable initalizations
+let num1;
+let num2;
+let operator;
+
 // Math functions
 function add(num1, num2) {
   return num1 + num2;
