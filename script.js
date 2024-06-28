@@ -42,7 +42,7 @@ function operate(num1, num2, operator) {
   operator = null;
   displayVal = "";
   displayNum(result.toString());
-  displayVal = ""
+  displayVal = "";
   return result;
 }
 
@@ -77,3 +77,9 @@ function displayNum(numString) {
   const display = document.querySelector(".display");
   display.textContent = displayVal;
 }
+
+// Make every number button update the display when clicked
+const numList = document.querySelectorAll(".num");
+numList.forEach((button) => {
+  button.addEventListener("click", displayNum());
+});
