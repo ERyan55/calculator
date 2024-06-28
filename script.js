@@ -89,3 +89,7 @@ const operatorList = document.querySelectorAll(".operator");
 numList.forEach((button) => {
   button.addEventListener("click", operatorClick);
 });
+
+// Make the equals button solve the equation on click
+const equalsButton = document.querySelector("#equals");
+equalsButton.addEventListener("click", operate);
