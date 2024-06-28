@@ -22,27 +22,35 @@ function divide(num1, num2) {
 }
 
 function operate(num1, num2, operator) {
+  let result = 0;
   switch (operator) {
     case "+":
-      add(num1, num2);
+      result = add(num1, num2);
       break;
     case "-":
-      subtract(num1, num2);
+      result = subtract(num1, num2);
       break;
     case "*":
-      multiply(num1, num2);
+      result = multiply(num1, num2);
       break;
     case "/":
-      divide(num1, num2);
+      result = divide(num1, num2);
       break;
   }
+  firstNum = null;
+  secondNum = null;
+  operator = null;
+  displayVal = "";
+  displayNum(result.toString());
+  displayVal = ""
+  return result;
 }
 
 // Decides whether to operate if both numbers are given a value, assigns a number to a value if not
 function operatorClick(num, op) {
   assignOperator(op);
   if (firstNum != null && secondNum != null) {
-    operate(firstNum, secondNum, operator);
+    firstNum = operate(firstNum, secondNum, operator);
   } else {
     assignNum(num);
   }
