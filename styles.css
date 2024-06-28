@@ -61,7 +61,8 @@ button.control {
   background-color: lightskyblue;
 }
 
-button.operator, #equals {
+button.operator,
+#equals {
   background-color: blueviolet;
 }
 

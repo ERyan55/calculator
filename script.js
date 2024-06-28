@@ -1,7 +1,7 @@
 // Variable initalizations
 let firstNum = null;
 let secondNum = null;
-let operator = null;
+let operator = "";
 let displayVal = "";
 
 // Math functions
@@ -47,18 +47,13 @@ function operate(num1, num2, operator) {
 }
 
 // Decides whether to operate if both numbers are given a value, assigns a number to a value if not
-function operatorClick(num, op) {
-  assignOperator(op);
+function operatorClick(op) {
+  operator = op;
   if (firstNum != null && secondNum != null) {
     firstNum = operate(firstNum, secondNum, operator);
   } else {
-    assignNum(num);
+    assignNum(displayVal);
   }
-}
-
-// Assigns the operator
-function assignOperator(string) {
-  operator = string;
 }
 
 // Decides which number to assign the current display value to
@@ -73,7 +68,7 @@ function assignNum(num) {
 
 // Displays the current value that has been entered
 function displayNum(numString) {
-  displayVal = displayVal.concat(numString);
+  displayVal = displayVal + numString;
   const display = document.querySelector(".display");
   display.textContent = displayVal;
 }
@@ -81,13 +76,13 @@ function displayNum(numString) {
 // Make every number button update the display when clicked
 const numList = document.querySelectorAll(".num");
 numList.forEach((button) => {
-  button.addEventListener("click", displayNum);
+  button.addEventListener("click", () => displayNum(button.textContent));
 });
 
 // Make every operator button either evaluate the current equation or assign a value when clicked
 const operatorList = document.querySelectorAll(".operator");
-numList.forEach((button) => {
-  button.addEventListener("click", operatorClick);
+operatorList.forEach((button) => {
+  button.addEventListener("click", () => operatorClick(button.textContent));
 });
 
 // Make the equals button solve the equation on click
