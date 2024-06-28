@@ -81,5 +81,11 @@ function displayNum(numString) {
 // Make every number button update the display when clicked
 const numList = document.querySelectorAll(".num");
 numList.forEach((button) => {
-  button.addEventListener("click", displayNum());
+  button.addEventListener("click", displayNum);
+});
+
+// Make every operator button either evaluate the current equation or assign a value when clicked
+const operatorList = document.querySelectorAll(".operator");
+numList.forEach((button) => {
+  button.addEventListener("click", operatorClick);
 });
