@@ -73,6 +73,14 @@ function displayNum(numString) {
   display.textContent = displayVal;
 }
 
+function clear() {
+  firstNum = null;
+  secondNum = null;
+  operator = "";
+  displayVal = "";
+  displayNum("");
+}
+
 // Make every number button update the display when clicked
 const numList = document.querySelectorAll(".num");
 numList.forEach((button) => {
@@ -87,4 +95,10 @@ operatorList.forEach((button) => {
 
 // Make the equals button solve the equation on click
 const equalsButton = document.querySelector("#equals");
-equalsButton.addEventListener("click", operate);
+equalsButton.addEventListener("click", () =>
+  operate(firstNum, secondNum, operator)
+);
+
+// Make the clear button clear all variables on click
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => clear());
