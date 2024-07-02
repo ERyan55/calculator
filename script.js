@@ -18,10 +18,13 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-  return num1 * num2;
+  return num1 / num2;
 }
 
 function operate(num1, num2, operator) {
+  if (num2 === null) {
+    num2 = parseFloat(displayVal);
+  }
   let result = 0;
   switch (operator) {
     case "+":
@@ -39,10 +42,9 @@ function operate(num1, num2, operator) {
   }
   firstNum = null;
   secondNum = null;
-  operator = null;
+  operator = "";
   displayVal = "";
   displayNum(result.toString());
-  displayVal = "";
   return result;
 }
 
