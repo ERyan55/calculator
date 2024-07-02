@@ -73,16 +73,6 @@ function operatorClick(op) {
   displayVal = "";
 }
 
-// Decides which number to assign the current display value to
-function assignNum(num) {
-  if (firstNum === null) {
-    firstNum = parseFloat(displayVal);
-  } else {
-    secondNum = parseFloat(displayVal);
-  }
-  displayVal = "";
-}
-
 // Displays the current value that has been entered
 function displayNum(numString) {
   if (isEqualsPressed === true) {
