@@ -3,6 +3,7 @@ let firstNum = null;
 let secondNum = null;
 let operator = "";
 let displayVal = "";
+let isEqualsPressed = false;
 
 // Math functions
 function add(num1, num2) {
@@ -48,13 +49,16 @@ function operate(num1, num2, operator) {
   return result;
 }
 
+function updateIsEqualsPressed() {
+  isEqualsPressed = true;
+}
+
 // Decides whether to operate if both numbers are given a value, assigns a number to a value if not
 function operatorClick(op) {
   operator = op;
+  assignNum(displayVal);
   if (firstNum != null && secondNum != null) {
     firstNum = operate(firstNum, secondNum, operator);
-  } else {
-    assignNum(displayVal);
   }
 }
 
@@ -70,6 +74,9 @@ function assignNum(num) {
 
 // Displays the current value that has been entered
 function displayNum(numString) {
+  if (isEqualsPressed === true) {
+    displayVal = "";
+  }
   displayVal = displayVal + numString;
   const display = document.querySelector(".display");
   display.textContent = displayVal;
@@ -100,6 +107,7 @@ const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", () =>
   operate(firstNum, secondNum, operator)
 );
+equalsButton.addEventListener("click", () => updateIsEqualsPressed());
 
 // Make the clear button clear all variables on click
 const clearButton = document.querySelector("#clear");
