@@ -41,6 +41,7 @@ function operate(num1, num2, operator) {
       result = divide(num1, num2);
       break;
   }
+  result = Math.round((result + Number.EPSILON) * 100) / 100;
   firstNum = null;
   secondNum = null;
   operator = "";
