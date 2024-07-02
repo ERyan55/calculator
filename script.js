@@ -38,6 +38,11 @@ function operate(num1, num2, operator) {
       result = multiply(num1, num2);
       break;
     case "/":
+      if (num2 === 0) {
+        displayVal = "";
+        displayNum("You cannot divide by zero!");
+        return;
+      }
       result = divide(num1, num2);
       break;
   }
