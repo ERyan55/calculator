@@ -55,11 +55,16 @@ function updateIsEqualsPressed() {
 
 // Decides whether to operate if both numbers are given a value, assigns a number to a value if not
 function operatorClick(op) {
-  operator = op;
-  assignNum(displayVal);
+  if (firstNum === null) {
+    firstNum = parseFloat(displayVal);
+  } else {
+    secondNum = parseFloat(displayVal);
+  }
   if (firstNum != null && secondNum != null) {
     firstNum = operate(firstNum, secondNum, operator);
   }
+  operator = op;
+  displayVal = "";
 }
 
 // Decides which number to assign the current display value to
